@@ -15,6 +15,7 @@ use Jlorente\DataMigrations\Console\Commands\InstallCommand as MigrateInstallCom
 use Jlorente\DataMigrations\Console\Commands\MakeMigrateDataCommand;
 use Jlorente\DataMigrations\Console\Commands\MigrateDataCommand;
 use Jlorente\DataMigrations\Console\Commands\RollbackDataCommand;
+use Jlorente\DataMigrations\Console\Commands\StatusCommand;
 use Jlorente\DataMigrations\Repositories\DatabaseDataMigrationRepository;
 
 /**
@@ -148,6 +149,9 @@ class DataMigrationsServiceProvider extends ServiceProvider
             $composer = $app['composer'];
 
             return new MakeMigrateDataCommand($creator, $composer);
+        });
+        $this->app->singleton('command.migrate-data.status', function ($app) {
+            return new StatusCommand($app['migrator.data']);
         });
     }
 
