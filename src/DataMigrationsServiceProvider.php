@@ -9,6 +9,7 @@
 
 namespace Jlorente\DataMigrations;
 
+use Illuminate\Events\Dispatcher;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Migrations\Migrator;
 use Jlorente\DataMigrations\Console\Commands\InstallCommand as MigrateInstallCommand;
