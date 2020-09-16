@@ -1,2 +1,5 @@
 nbproject
 .AppleDouble
+composer.lock
+/vendor
+.idea
