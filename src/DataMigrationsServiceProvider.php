@@ -19,7 +19,7 @@ use Jlorente\DataMigrations\Repositories\DatabaseDataMigrationRepository;
 
 /**
  * DataMigrationsServiceProvider class.
- * 
+ *
  * @author José Lorente <jose.lorente.martin@gmail.com>
  */
 class DataMigrationsServiceProvider extends ServiceProvider
@@ -131,7 +131,7 @@ class DataMigrationsServiceProvider extends ServiceProvider
     protected function bindArtisanCommands()
     {
         $this->app->singleton('command.migrate-data', function ($app) {
-            return new MigrateDataCommand($app['migrator.data']);
+            return new MigrateDataCommand($app['migrator.data'], $app[Dispatcher::class]);
         });
         $this->app->singleton('command.migrate-data.install', function ($app) {
             return new MigrateInstallCommand($app['migration.data.repository']);
